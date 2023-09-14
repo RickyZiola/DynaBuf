@@ -9,8 +9,7 @@ void test_initialize_buffer() {
     initDynamicBuf(byte, buf);
     assert(buf->data == NULL);
     assert(buf->capacity == 0);
-    free(buf->data);
-    free(buf);
+    freeDynamicBuf(byte, buf);
 }
 
 // Test function to check if a buffer can be grown
@@ -19,8 +18,7 @@ void test_grow_buffer() {
     initDynamicBuf(byte, buf);
     growDynamicBuf(byte, buf);
     assert(buf->capacity == 8);  // Initial capacity is 0, so it should grow to 8
-    free(buf->data);
-    free(buf);
+    freeDynamicBuf(byte, buf);
 }
 
 // Test function to write and read from the buffer
@@ -37,8 +35,7 @@ void test_write_read_buffer() {
     val = readDynamicBuf(byte, buf, 100);
     assert(val == 0);
 
-    free(buf->data);
-    free(buf);
+    freeDynamicBuf(byte, buf);
 }
 
 // Test function to clear the buffer
@@ -54,8 +51,7 @@ void test_clear_buffer() {
     byte val = readDynamicBuf(byte, buf, 0);
     assert(val == 0);
 
-    free(buf->data);
-    free(buf);
+    freeDynamicBuf(byte, buf);
 }
 
 int main() {

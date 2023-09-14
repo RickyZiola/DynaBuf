@@ -136,4 +136,4 @@ typedef uint8_t byte;
  * @retval ERR_OK, nothing can go wrong in this function (that doesn't cause a crash)
 
 */
-#define freeDynamicBuf(tp, buf) ({ free(buf->data); free(buf); ERR_OK })
+#define freeDynamicBuf(tp, buf) ({ free((buf)->data); free((buf)); ERR_OK; })
