@@ -26,7 +26,7 @@ Initialize a dynamic buffer, making it empty with capacity 0.
 A `DynabufErr`, this is always `ERR_OK` as nothing can go wrong in this function.
 
 ## `growDynamicBuf(tp, buf)`
-Increase the capacity of a `DynamicBuffer(tp)`.  
+Increase the capacity of a dynamic buffers.  
 This sets the capacity to 8 if the buffer is emtpy and doubles it otherwise.
 ### Parameters:
 - `tp`: The type of the buffer data
