@@ -6,7 +6,7 @@
 
 #include "errcode.h"
 
-/*
+/**
 
  * Creates a new DynamicBuffer type. This can hold up to 4294967296 slots of data.
  *
@@ -25,7 +25,7 @@ typedef DynamicBuffer(uint16_t) DynamicShortBuffer;
 
 typedef uint8_t byte;
 
-/*
+/**
  
  * Allocates space for a new dynamic buffer
  *
@@ -36,7 +36,7 @@ typedef uint8_t byte;
  */
 #define newDynamicBuf(tp) (malloc(sizeof(DynamicBuffer(tp))))
 
-/*
+/**
 
  * Sets up the fields of a new dynamic buffer
  *
@@ -51,7 +51,7 @@ typedef uint8_t byte;
     (buf)->capacity = 0; ERR_OK; })
 
 
-/*
+/**
 
  * Expands the capacity of a dynamic buffer. If the buffer's capacity is 0 (empty) it allocates 8 slots. Otherwise, it doubles the number of allocated slots.
  *
@@ -66,7 +66,7 @@ typedef uint8_t byte;
     ((((buf)->data = realloc((buf)->data, (buf)->capacity * sizeof(tp))) == NULL) ? ERR_INSUFFICIENT_MEM : ERR_OK); })
 
 
-/*
+/**
 
  * Write to a slot of a dynamic buffer. This automatically grows the buffer if `addr` is out of the buffer's range
  *
@@ -95,7 +95,7 @@ typedef uint8_t byte;
         finalErr = allocErr;                      \
     } finalErr; })
 
-/*
+/**
 
  * Read from a slot of a dynamic buffer.
  *
@@ -108,7 +108,7 @@ typedef uint8_t byte;
  */
 #define readDynamicBuf(tp, buf, addr) (((addr) >= (buf)->capacity) ? ((tp) 0) : ((tp) ((buf)->data[addr])))
 
-/*
+/**
 
  * Sets all slots of a dynamic buffer to a value
  *

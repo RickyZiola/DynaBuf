@@ -1,0 +1,3 @@
+# DynaBuf documentation
+
+## `DynamicBuffer(tp)``
