@@ -3,14 +3,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-typedef uint8_t DynabufErr;  // I hope we don't end up with more than 256 errors...
-
-
 typedef enum {
     ERR_OK,
     ERR_INSUFFICIENT_MEM,
     ERR_FAILED_WRITE
-} ClaspErrs;
+} DynabufErr;
 
 #define decodeErr(err) ({                                          \
     char *out;                                                     \
