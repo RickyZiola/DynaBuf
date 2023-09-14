@@ -34,7 +34,7 @@ typedef uint8_t byte;
  * @retval A pointer to the buffer
 
  */
-#define newDynamicBuf(tp) (malloc(sizeof(DynamicBuffer(tp))))
+#define newDynamicBuf(tp) ((DynamicBuffer(tp))malloc(sizeof(DynamicBuffer(tp))))
 
 /**
 
