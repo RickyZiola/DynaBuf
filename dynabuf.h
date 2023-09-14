@@ -120,8 +120,20 @@ typedef uint8_t byte;
 
  */
 #define clearDynamicBuf(tp, buf, val) ({                      \
-    DynabufErr err = ERR_OK;                                \
+    DynabufErr err = ERR_OK;                                  \
     for (int addr = 0; addr < (buf)->capacity; ++addr) {      \
-        if ((err = writeDynamicBuf(tp, buf, addr, val)) \
+        if ((err = writeDynamicBuf(tp, buf, addr, val))       \
             != ERR_OK) break;                                 \
     } err; })
+
+/**
+
+ * Frees a dynamic buffer and all memory allocated to it
+ *
+ * @param tp The tpye of the buffer data
+ * @param buf The buffer to free
+ * 
+ * @retval ERR_OK, nothing can go wrong in this function (that doesn't cause a crash)
+
+*/
+#define freeDynamicBuf(tp, buf) ({ free(buf->data); free(buf); ERR_OK })
