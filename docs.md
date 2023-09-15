@@ -17,7 +17,7 @@ Allocates space for a new dynamic buffer.
 A pointer to a new DynamicBuffer(tp)
 
 ### Warnings:
-This buffer is not initialized and reading and `initDynamicBuf` should be called before running any operations on the buffer;
+This buffer is not initialized and `initDynamicBuf` should be called before running any operations on the buffer;
 
 ## `initDynamicBuf(tp, buf)`
 Initialize a dynamic buffer, making it empty with capacity 0.
